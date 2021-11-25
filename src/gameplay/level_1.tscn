@@ -1,0 +1,2489 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://src/gameplay/level_1.gd" type="Script" id=1]
+[ext_resource path="res://graphics/bad_character/face_normal.png" type="Texture" id=2]
+[ext_resource path="res://music/start/start.wav" type="AudioStream" id=3]
+[ext_resource path="res://src/gameplay/player/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://fonts/Teko_dynamic_bold.tres" type="DynamicFont" id=5]
+[ext_resource path="res://fonts/Points.tres" type="DynamicFont" id=6]
+[ext_resource path="res://music/level1/level_music1.wav" type="AudioStream" id=7]
+[ext_resource path="res://src/gameplay/enemy/Weapon.tscn" type="PackedScene" id=8]
+[ext_resource path="res://graphics/player/sword.png" type="Texture" id=9]
+[ext_resource path="res://music/sounds/hit.wav" type="AudioStream" id=10]
+[ext_resource path="res://music/sounds/bullet.wav" type="AudioStream" id=11]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fly"
+length = 0.428
+loop = true
+step = 0.214
+tracks/0/type = "value"
+tracks/0/path = NodePath("play_arena/enemy_face:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.214, 0.428 ),
+"transitions": PoolRealArray( 0.329877, 0.329877, 0.329877 ),
+"update": 0,
+"values": [ Vector2( 1784.73, 152.337 ), Vector2( 1784.73, 190.5 ), Vector2( 1784.73, 152.337 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "start"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("play_arena/enemy_face:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 956, 309.17 ), Vector2( 1784.73, 152.337 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("play_arena/enemy_face:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2.361, 2.361 ), Vector2( 1.206, 1.206 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ProgressBar:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("play_arena/arena:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1.9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_level1"
+} ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Skip:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("play_arena/enemy_face:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "level1"
+length = 124.0
+step = 0.214
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.43, 0.86, 1.29, 1.72, 2.15, 3.44, 3.87, 4.3, 4.73, 5.16, 5.59, 6.88, 7.31, 7.74, 8.17, 8.6, 9.03, 10.32, 10.75, 11.18, 11.61, 12.04, 12.47, 13.72, 14.0724, 14.401, 14.8179, 15.0264, 15.2436, 15.4236, 15.7509, 16.0996, 16.5002, 16.7574, 17.0025, 17.1454, 17.4978, 17.8264, 18.2433, 18.4518, 18.669, 18.849, 19.1764, 19.5251, 19.9256, 20.1828, 20.428, 20.544, 20.972, 21.4, 21.828, 22.256, 22.684, 23.112, 23.54, 23.968, 24.396, 24.824, 25.252, 25.68, 26.108, 26.536, 26.964, 27.392, 27.82, 28.248, 28.676, 29.104, 29.532, 29.96, 30.388, 30.816, 31.244, 31.672, 32.1, 32.528, 32.956, 33.384, 33.812, 34.24, 35.096, 35.31, 35.524, 35.738, 35.952, 36.166, 36.38, 36.594, 36.808, 37.022, 37.236, 37.45, 37.664, 37.878, 38.092, 38.306, 38.52, 38.734, 38.948, 39.162, 39.376, 39.59, 39.804, 40.018, 40.232, 40.446, 40.66, 40.874, 41.088, 41.302, 41.516, 41.73, 41.944, 42.158, 42.372, 42.586, 42.8, 43.014, 43.228, 43.442, 44.512, 44.94, 45.3783, 45.796, 46.224, 46.652, 47.08, 47.508, 47.936, 48.364, 48.792, 49.22, 49.648, 50.076, 50.5143, 50.932, 51.36, 51.788, 52.216, 52.644, 53.072, 53.5, 53.928, 54.356, 54.784, 55.212, 55.64, 56.068, 56.496, 56.924, 57.352, 57.78, 58.208, 58.636, 59.278, 59.492, 59.706, 59.92, 60.134, 60.348, 60.562, 60.776, 60.99, 61.204, 61.418, 61.632, 61.846, 62.06, 62.274, 62.488, 62.702, 62.916, 63.13, 63.344, 63.558, 63.772, 63.986, 64.2, 64.414, 64.628, 64.842, 65.056, 65.27, 65.484, 65.698, 65.912, 66.126, 66.34, 66.554, 66.768, 66.982, 67.196, 67.41, 67.624, 67.838, 68.052, 68.266, 68.48, 68.694, 68.908, 69.122, 69.336, 69.55, 69.764, 69.978, 70.192, 70.406, 70.62, 70.834, 71.048, 71.262, 71.476, 71.69, 71.904, 72.118, 72.332, 72.546, 72.76, 72.974, 73.188, 73.402, 73.616, 73.83, 74.044, 74.258, 74.472, 75.542, 75.97, 76.398, 76.826, 77.254, 77.682, 78.11, 78.538, 78.966, 79.394, 79.822, 80.25, 80.678, 81.106, 81.534, 81.962, 82.39, 82.818, 83.246, 83.674, 84.102, 84.53, 84.958, 85.386, 85.814, 86.242, 86.67, 87.098, 87.526, 87.954, 88.382, 88.81, 89.238, 89.666, 90.094, 90.522, 90.95, 91.378, 91.806, 92.448, 92.876, 93.304, 93.732, 94.16, 94.588, 95.658, 96.086, 96.514, 96.942, 97.37, 97.798, 98.868, 99.296, 99.724, 100.152, 100.58, 101.008, 102.078, 102.506, 102.934, 103.362, 103.79, 104.218, 105.288, 105.716, 106.144, 106.572, 107, 107.428, 108.498, 108.926, 109.354, 109.782, 110.21, 110.638, 123.906 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2.15, 5.59, 9.03, 12.47, 13.72, 14.0724, 14.3999, 17.1454, 17.4978, 17.8253, 20.544, 20.972, 21.4, 21.828, 22.256, 22.684, 23.112, 23.54, 23.968, 24.396, 24.824, 25.252, 25.68, 26.108, 26.536, 26.964, 27.392, 27.82, 28.248, 28.676, 29.104, 29.532, 29.96, 30.388, 30.816, 31.244, 31.672, 32.1, 32.528, 32.956, 33.384, 33.812, 34.24, 35.096, 35.31, 35.524, 35.738, 35.952, 36.166, 36.38, 36.594, 36.808, 37.022, 37.236, 37.45, 37.664, 37.878, 38.092, 38.306, 38.52, 38.734, 38.948, 39.162, 39.376, 39.59, 39.804, 40.018, 40.232, 40.446, 40.66, 40.874, 41.088, 41.302, 41.516, 41.73, 41.944, 42.158, 42.372, 42.586, 42.8, 43.014, 43.228, 43.442, 44.512, 44.94, 45.368, 45.796, 46.224, 46.652, 47.08, 47.508, 47.936, 48.364, 48.792, 49.22, 49.648, 50.076, 50.504, 50.932, 51.36, 51.788, 52.216, 52.644, 53.072, 53.5, 53.928, 54.356, 54.784, 55.212, 55.64, 56.068, 56.496, 56.924, 57.352, 57.78, 58.208, 58.636, 59.278, 59.492, 59.706, 59.92, 60.134, 60.348, 60.562, 60.776, 60.99, 61.204, 61.418, 61.632, 61.846, 62.06, 62.274, 62.488, 62.702, 62.916, 63.13, 63.344, 63.558, 63.772, 63.986, 64.2, 64.414, 64.628, 64.842, 65.056, 65.27, 65.484, 65.698, 65.912, 66.126, 66.34, 66.554, 66.768, 66.982, 67.196, 67.41, 67.624, 67.838, 68.052, 68.266, 68.48, 68.694, 68.908, 69.122, 69.336, 69.55, 69.764, 69.978, 70.192, 70.406, 70.62, 70.834, 71.048, 71.262, 71.476, 71.69, 71.904, 72.118, 72.332, 72.546, 72.76, 72.974, 73.188, 73.402, 73.616, 73.83, 74.044, 74.258, 74.472, 75.542, 75.97, 76.398, 76.826, 77.254, 77.682, 78.11, 78.538, 78.966, 79.394, 79.822, 80.25, 80.678, 81.106, 81.534, 81.962, 82.39, 82.818, 83.246, 83.674, 84.102, 84.53, 84.958, 85.386, 85.814, 86.242, 86.67, 87.098, 87.526, 87.954, 88.382, 88.81, 89.238, 89.666, 90.094, 90.522, 90.95, 91.378, 91.806, 94.588, 97.798, 101.008, 104.218, 107.428, 110.638 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put2"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+}, {
+"args": [  ],
+"method": "color_put1"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 35.096, 35.31, 35.524, 35.738, 35.9344, 36.166, 36.38, 36.594, 36.808, 37.022, 37.236, 37.45, 37.6464, 37.878, 38.092, 38.306, 59.492, 59.706, 59.92, 60.134, 60.348, 60.562, 60.776, 60.99, 61.204, 61.418, 61.632, 61.846, 62.015, 62.229, 62.443, 62.657, 62.916, 63.13, 63.344, 63.558, 63.772, 63.986, 64.2, 64.414, 64.628, 64.842, 65.056, 65.27, 65.484, 65.698, 65.912, 66.126, 66.34, 66.554, 66.768, 66.937, 67.151, 67.365, 67.579, 67.838, 68.052, 68.266, 68.48, 68.694, 68.908, 69.122, 69.336, 92.876 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put3"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "color_put4"
+}, {
+"args": [  ],
+"method": "extreme_color_on"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 3.01, 3.44, 3.87, 6.45, 6.88, 7.31, 9.89, 10.32, 10.75, 13.33, 13.76, 14.19, 20.544, 21.4, 32.956, 44.084, 44.512, 44.94, 59.278, 59.92, 74.9, 92.02, 95.444, 95.872, 96.3, 99.51 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "face_happy1"
+}, {
+"args": [  ],
+"method": "face_happy2"
+}, {
+"args": [  ],
+"method": "face_normal"
+}, {
+"args": [  ],
+"method": "face_happy1"
+}, {
+"args": [  ],
+"method": "face_happy2"
+}, {
+"args": [  ],
+"method": "face_normal"
+}, {
+"args": [  ],
+"method": "face_happy1"
+}, {
+"args": [  ],
+"method": "face_happy2"
+}, {
+"args": [  ],
+"method": "face_normal"
+}, {
+"args": [  ],
+"method": "face_happy1"
+}, {
+"args": [  ],
+"method": "face_happy2"
+}, {
+"args": [  ],
+"method": "face_normal"
+}, {
+"args": [  ],
+"method": "face_happy1"
+}, {
+"args": [  ],
+"method": "face_happy2"
+}, {
+"args": [  ],
+"method": "face_normal"
+}, {
+"args": [  ],
+"method": "face_happy1"
+}, {
+"args": [  ],
+"method": "face_happy2"
+}, {
+"args": [  ],
+"method": "face_normal"
+}, {
+"args": [  ],
+"method": "face_happy1"
+}, {
+"args": [  ],
+"method": "face_happy2"
+}, {
+"args": [  ],
+"method": "face_normal"
+}, {
+"args": [  ],
+"method": "face_normal"
+}, {
+"args": [  ],
+"method": "face_happy1"
+}, {
+"args": [  ],
+"method": "face_happy2"
+}, {
+"args": [  ],
+"method": "face_normal"
+}, {
+"args": [  ],
+"method": "face_angry"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 3.01, 3.20026, 6.40939, 6.63363, 9.89, 10.1329, 13.33, 13.5991, 20.544, 44.084, 44.512, 59.278, 74.9, 75.114, 92.02, 92.234, 94.16, 94.588, 96.514, 96.728, 98.44, 98.654, 102.078, 102.506, 104.004, 104.432, 105.502, 106.144 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "color_off"
+}, {
+"args": [  ],
+"method": "color_on"
+}, {
+"args": [  ],
+"method": "color_off"
+}, {
+"args": [  ],
+"method": "color_on"
+}, {
+"args": [  ],
+"method": "color_off"
+}, {
+"args": [  ],
+"method": "color_on"
+}, {
+"args": [  ],
+"method": "color_off"
+}, {
+"args": [  ],
+"method": "color_on"
+}, {
+"args": [  ],
+"method": "start_weapon"
+}, {
+"args": [  ],
+"method": "color_off"
+}, {
+"args": [  ],
+"method": "color_on"
+}, {
+"args": [  ],
+"method": "start_weapon"
+}, {
+"args": [  ],
+"method": "color_off"
+}, {
+"args": [  ],
+"method": "color_on"
+}, {
+"args": [  ],
+"method": "color_off"
+}, {
+"args": [  ],
+"method": "color_on"
+}, {
+"args": [  ],
+"method": "color_off"
+}, {
+"args": [  ],
+"method": "color_on"
+}, {
+"args": [  ],
+"method": "color_off"
+}, {
+"args": [  ],
+"method": "color_on"
+}, {
+"args": [  ],
+"method": "color_off"
+}, {
+"args": [  ],
+"method": "color_on"
+}, {
+"args": [  ],
+"method": "color_on"
+}, {
+"args": [  ],
+"method": "color_off"
+}, {
+"args": [  ],
+"method": "color_off"
+}, {
+"args": [  ],
+"method": "color_on"
+}, {
+"args": [  ],
+"method": "color_off"
+}, {
+"args": [  ],
+"method": "color_on"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 16.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("play_arena/enemy_face:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 2.5, 3.8 ),
+"transitions": PoolRealArray( 0.307786, 0.307786, 0.307786 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4.4, 10.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ "-I fell you. Why did you come here?", "Wait?! You are... you are color!", "-Yes i am. But from now. The Color will return!" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("play_arena/enemy_face:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 15.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 956, 309.17 ), Vector2( 956, 309.17 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("play_arena/enemy_face:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 15.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2.36054, 2.36054 ), Vector2( 2.36054, 2.36054 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("play_arena/arena:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Label:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ProgressBar:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Skip:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 2, 15.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("play_arena/Weapon:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "weapon"
+length = 17.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("play_arena/Weapon:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 16 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("play_arena/Weapon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 8, 14, 16 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 958.837, -31.1127 ), Vector2( 958.837, 320.008 ), Vector2( 958.837, 320.008 ), Vector2( 958.837, 676.39 ), Vector2( 958.837, 1221.62 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("play_arena/Weapon:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2, 8, 14, 16 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 720.0, 0.0, 720.0 ]
+}
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0, 0, 1 )
+
+[node name="level_1" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="play_arena" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="play_arena"]
+margin_top = -2.0
+margin_right = 1931.0
+margin_bottom = 1084.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="colors" type="Node2D" parent="play_arena"]
+
+[node name="Weapon" parent="play_arena" instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 958.837, 1221.62 )
+rotation = 12.5664
+
+[node name="arena" type="ColorRect" parent="play_arena"]
+visible = false
+modulate = Color( 1, 1, 1, 0.505882 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_top = 159.765
+margin_right = 1927.0
+margin_bottom = 275.765
+color = Color( 0.145098, 0.145098, 0.145098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="zebrane_kolory" type="Label" parent="play_arena/arena"]
+light_mask = -2147483647
+anchor_left = 0.172
+anchor_top = 0.5
+anchor_right = 0.172
+anchor_bottom = 0.5
+margin_left = 0.180511
+margin_top = -54.2449
+margin_right = 149.18
+margin_bottom = 47.7551
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+text = "0"
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="punkty" type="Label" parent="play_arena/arena"]
+light_mask = -2147483647
+anchor_left = 0.035
+anchor_top = 0.491
+anchor_right = 0.035
+anchor_bottom = 0.491
+margin_left = -0.55587
+margin_top = -50.956
+margin_right = 148.444
+margin_bottom = 51.044
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+text = "0"
+max_lines_visible = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="play_arena/arena"]
+anchor_left = 0.27
+anchor_top = 0.5
+anchor_right = 0.27
+anchor_bottom = 0.5
+margin_left = -14.29
+margin_top = -74.0
+margin_right = 147.71
+margin_bottom = 71.0
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.941176, 0.941176, 0.941176, 1 )
+icon = ExtResource( 9 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="enemy_face" type="Sprite" parent="play_arena"]
+position = Vector2( 1784.73, 152.337 )
+scale = Vector2( 2.36054, 2.36054 )
+texture = ExtResource( 2 )
+
+[node name="enemy" type="AnimationPlayer" parent="."]
+anims/fly = SubResource( 1 )
+anims/start = SubResource( 2 )
+
+[node name="game" type="AnimationPlayer" parent="."]
+anims/level1 = SubResource( 3 )
+
+[node name="start" type="AnimationPlayer" parent="."]
+anims/start_game = SubResource( 4 )
+
+[node name="weapon" type="AnimationPlayer" parent="."]
+anims/weapon = SubResource( 7 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+margin_top = 246.0
+margin_right = 1930.0
+margin_bottom = 1082.0
+custom_fonts/font = ExtResource( 5 )
+text = "-Yes i am. But from now. The Color will return!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Skip" type="Label" parent="."]
+visible = false
+margin_left = 1566.96
+margin_top = 936.133
+margin_right = 1884.96
+margin_bottom = 1038.13
+custom_fonts/font = ExtResource( 6 )
+text = "RBM to skip"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1193.91, 325.079 )
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+margin_left = 31.7755
+margin_top = 62.6838
+margin_right = 1611.78
+margin_bottom = 102.684
+custom_styles/fg = SubResource( 5 )
+custom_styles/bg = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+step = 0.086
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="intro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="level1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -11.774
+
+[node name="hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="clean" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+[connection signal="pressed" from="play_arena/arena/Button" to="." method="_on_Button_pressed"]
+[connection signal="animation_finished" from="game" to="." method="_on_game_animation_finished"]
+[connection signal="animation_finished" from="start" to="." method="_on_start_animation_finished"]

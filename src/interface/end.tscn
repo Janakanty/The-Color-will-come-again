@@ -1,0 +1,121 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/interface/end.gd" type="Script" id=1]
+[ext_resource path="res://fonts/Teko_dynamic_bold.tres" type="DynamicFont" id=2]
+[ext_resource path="res://fonts/Points.tres" type="DynamicFont" id=3]
+[ext_resource path="res://graphics/bad_character/face_death.png" type="Texture" id=4]
+[ext_resource path="res://graphics/bad_character/face_happy2.png" type="Texture" id=5]
+[ext_resource path="res://src/gameplay/player/player.tscn" type="PackedScene" id=6]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+anchor_left = 0.384
+anchor_top = 0.156
+anchor_right = 0.577
+anchor_bottom = 0.5
+margin_left = 36.0143
+margin_top = -10.7784
+margin_right = -23.5458
+margin_bottom = 18.7017
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Label2" type="Label" parent="ColorRect"]
+anchor_left = 0.304
+anchor_top = 0.617
+anchor_right = 0.683
+anchor_bottom = 0.686
+margin_left = 0.319946
+margin_top = -7.36005
+margin_right = -0.360107
+margin_bottom = 56.1199
+custom_fonts/font = ExtResource( 3 )
+text = "Hahahaha. Its over!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0.505882, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect2"]
+anchor_left = 0.404
+anchor_top = 0.119
+anchor_right = 0.616
+anchor_bottom = 0.532
+margin_left = 0.536987
+margin_top = -0.2108
+margin_right = 0.496948
+margin_bottom = -0.250793
+texture = ExtResource( 4 )
+expand = true
+
+[node name="Label" type="Label" parent="ColorRect2"]
+anchor_left = 0.304
+anchor_top = 0.617
+anchor_right = 0.683
+anchor_bottom = 0.686
+margin_left = 0.319946
+margin_top = -7.36005
+margin_right = -0.360107
+margin_bottom = 56.1199
+custom_fonts/font = ExtResource( 3 )
+text = "You WIN! Color returned!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.869
+anchor_top = 0.798
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.436523
+margin_top = 0.251282
+margin_right = -65.0835
+margin_bottom = -61.9087
+custom_fonts/font = ExtResource( 2 )
+text = "Agian"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.505
+anchor_top = 0.741
+anchor_right = 0.505
+anchor_bottom = 0.741
+margin_left = -121.6
+margin_top = 10.8106
+margin_right = 123.4
+margin_bottom = 148.811
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="player" parent="." instance=ExtResource( 6 )]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
